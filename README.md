@@ -23,7 +23,15 @@ Validate the HTML and CSS code.
 Publish the website in the given URL.
 
 # PROGRAM :
+views.py
 ```
+from django.shortcuts import render
+def gallery (request):
+    return render(request,'image_gallery.html')
+```
+image_gallery.html
+```
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +44,6 @@ Publish the website in the given URL.
             margin: 0;
             padding: 0;
             background-color: white;
-            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,9 +57,9 @@ Publish the website in the given URL.
             left: 50%;
             transform: translateX(-50%);
             font-size: 42px;
-            color:black;
+            color: rgb(0, 0, 0);
             z-index: 1;
-            text-shadow: 2px 2px 4px rgb(100, 95, 103);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .gallery-container {
@@ -122,12 +129,16 @@ Publish the website in the given URL.
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            cursor: pointer;
+            top: 10px;
+            right: 10px;
             background-color: rgba(0, 0, 0, 0.6);
             color: rgb(0, 255, 251);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 5px;
+            display: none;
         }
 
         .close-btn:hover {
@@ -136,27 +147,26 @@ Publish the website in the given URL.
     </style>
 </head>
 <body>
-    
     <div class="title">Singapore</div> 
     
     <div class="gallery-container">
         <div class="gallery-item">
-            <img src="c:\Users\admin\Downloads\sg2 (1).jpg" alt="Image 1">
+            <img src="{% static 'images/sg1.jpeg' %}" alt="Image 1">
         </div>
         <div class="gallery-item">
-            <img src="c:\Users\admin\Downloads\sg1 (2).jpeg" alt="Image 2">
+            <img src="{% static 'images/sg2.jpg' %}" alt="Image 2">
         </div>
         <div class="gallery-item">
-            <img src="c:\Users\admin\Downloads\sg5.webp" alt="Image 3">
+            <img src="{% static 'images/sg3.avif' %}" alt="Image 3">
         </div>
         <div class="gallery-item">
-            <img src="c:\Users\admin\Downloads\sg4.jpg" alt="Image 4">
+            <img src="{% static 'images/sg4.jpg' %}" alt="Static Image">
         </div>
         <div class="gallery-item">
-            <img src="c:\Users\admin\Downloads\sg3.avif" alt="Image 5">
+            <img src="{% static 'images/sg5.webp' %}" alt="Image 5">
         </div>
         <div class="gallery-item">
-            <img src="c:\Users\admin\Downloads\sg6.jpg" alt="'Image 65">
+            <img src="{% static 'images/sg6.jpg' %}" alt="Image 6">
         </div>
     </div>
 
@@ -211,11 +221,20 @@ Publish the website in the given URL.
 </body>
 </html>
 ```
+urls.py
+```
+from django.contrib import admin 
+from django.urls import path 
+from app import views
+urlpatterns = [ 
+    path('admin/', admin.site.urls), 
+    path('gallery/',views.gallery),
+]
+```
 # OUTPUT:
-![Screenshot (228)](https://github.com/user-attachments/assets/0c624832-6b86-4497-be6d-2c0d16493891)
-![Screenshot (224)](https://github.com/user-attachments/assets/47c2911c-d4de-4bfb-b1ce-0f5af43e1928)
-![Screenshot (227)](https://github.com/user-attachments/assets/fb575ce8-c10d-489f-89a3-86a0105089aa)
-
+![Screenshot (229)](https://github.com/user-attachments/assets/f31f2c10-85fd-4039-9859-50b1bc3b207d)
+![Screenshot (230)](https://github.com/user-attachments/assets/3915d5f8-3eb0-41e0-9585-aa46d7db6003)
+![Screenshot (231)](https://github.com/user-attachments/assets/5a9c7e5a-308a-430d-802e-57143088f748)
 
 
 # RESULT:
