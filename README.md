@@ -235,6 +235,8 @@ urlpatterns = [
 ![Screenshot (229)](https://github.com/user-attachments/assets/f31f2c10-85fd-4039-9859-50b1bc3b207d)
 ![Screenshot (230)](https://github.com/user-attachments/assets/3915d5f8-3eb0-41e0-9585-aa46d7db6003)
 ![Screenshot (231)](https://github.com/user-attachments/assets/5a9c7e5a-308a-430d-802e-57143088f748)
+![{38884AD8-10E2-46ED-A7F4-FCA78E0A9D38}](https://github.com/user-attachments/assets/24174c59-01d1-4949-bef8-0f51574de037)
+
 
 
 # RESULT:
